@@ -15,7 +15,7 @@ TEST_CASE("test List functions", "[List]") {
             test_list.PopFront();
         }
         catch (std::runtime_error ex) {
-            CHECK_THROWS(throw std::runtime_error("list is empty"));
+            CHECK_THROWS(throw std::runtime_error(ex.what()));
             CHECK(test_list.Empty());
             CHECK(test_list.Size() == 0);
         }
@@ -25,7 +25,7 @@ TEST_CASE("test List functions", "[List]") {
             test_list.PopBack();
         }
         catch (std::runtime_error ex) {
-            CHECK_THROWS(throw std::runtime_error("list is empty"));
+            CHECK_THROWS(throw std::runtime_error(ex.what()));
             CHECK(test_list.Empty());
             CHECK(test_list.Size() == 0);
         }
@@ -54,7 +54,7 @@ TEST_CASE("test List functions", "[List]") {
             CHECK(test_list.PopBack() == 5);
         }
         catch (std::runtime_error ex) {
-            CHECK_NOTHROW(throw std::runtime_error("list is empty"));
+            CHECK_NOTHROW(throw std::runtime_error(ex.what()));
             CHECK(test_list.Size() == 2);
             CHECK_FALSE(test_list.Empty());
         }
@@ -64,7 +64,7 @@ TEST_CASE("test List functions", "[List]") {
             CHECK(test_list.PopFront() == 7);
         }
         catch (std::runtime_error ex) {
-            CHECK_NOTHROW(throw std::runtime_error("list is empty"));
+            CHECK_NOTHROW(throw std::runtime_error(ex.what()));
             CHECK(test_list.Size() == 1);
             CHECK_FALSE(test_list.Empty());
         }
